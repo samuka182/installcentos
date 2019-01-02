@@ -152,8 +152,8 @@ fi
 mkdir -p /etc/origin/master/
 touch /etc/origin/master/htpasswd
 
-ansible-playbook -i inventory.ini openshift-ansible/playbooks/prerequisites.yml --private-key=/home/samuellobato/.ssh/id_rsa.pub
-ansible-playbook -i inventory.ini openshift-ansible/playbooks/deploy_cluster.yml --private-key=/home/samuellobato/.ssh/id_rsa.pub
+ansible-playbook -i inventory.ini openshift-ansible/playbooks/prerequisites.yml --private-key=/home/samuellobato/.ssh/samuellobato.ppk
+ansible-playbook -i inventory.ini openshift-ansible/playbooks/deploy_cluster.yml --private-key=/home/samuellobato/.ssh/samuellobato.ppk
 
 htpasswd -b /etc/origin/master/htpasswd ${USERNAME} ${PASSWORD}
 oc adm policy add-cluster-role-to-user cluster-admin ${USERNAME}
